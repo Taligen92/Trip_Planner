@@ -1,0 +1,91 @@
+mylist = []
+
+travelers = input("How many people are going on this trip? ")
+try:
+    numPeople = int(travelers)
+    print("So " + travelers + " people are going on this trip.")
+except ValueError :
+    print("Oops please enter a numeric value.")  
+
+length = input("How many days is this trip for?")
+try:
+    days = int(length)
+    if days <=7 :
+        print("That's " + length + " days for " + travelers + " people . Sounds great.")
+        timesLaundry = 0
+        laundry = 0
+    if days > 7 :
+        print ("That's " + length + " days for " + travelers + " people. Whew that's a long trip!")
+        timesLaundry = input("How many times are you going to do laundry?")
+        try:
+            if int(timesLaundry) >= 1:
+                laundry = int(timesLaundry)
+                print ("So you'll be doing laundry " + timesLaundry + " times.")
+            if int(timesLaundry) == 0:
+                laundry = 0
+                print("No laundry on this trip.")
+        except ValueError:
+                print("Oops please enter a numeric value.")
+except ValueError :
+    print("Oops please enter a numeric value.")
+
+print("Calculating what you need.")
+try:
+    if days > 7 and int(laundry) > 0:
+        numClothes = int((days / (laundry+1)) + 1)
+        mylist.append(numClothes)
+        x = mylist[0]
+        totalClothes = int(x * numPeople)
+        mylist.append(totalClothes)
+        y = mylist[1]
+        print("Per person, you will need:")
+        print("%s pairs of pants, if you change pants every day." %x)
+        print("%s shirts." %x)
+        print("%s pairs of socks." %x)
+        print("%s pairs of underwear." %x)
+        print(" ")
+        print("For a total of:")
+        print("%s pairs of pants." %y)
+        print("%s shirts." %y)
+        print("%s pairs of socks." %y)
+        print("%s pairs of underwear." %y)
+    if int(laundry) == 0:
+        numClothes = int((days)+1)
+        mylist.append(numClothes)
+        x = mylist[0]
+        totalClothes = int(x * numPeople)
+        mylist.append(totalClothes)
+        y = mylist[1]
+        print("Per person, you will need:")
+        print("%s pairs of pants, if you change pants every day." %x)
+        print("%s shirts." %x)
+        print("%s pairs of socks." %x)
+        print("%s pairs of underwear." %x)
+        print(" ")
+        print("For a total of:")
+        print("%s pairs of pants." %y)
+        print("%s shirts." %y)
+        print("%s pairs of socks." %y)
+        print("%s pairs of underwear." %y)
+except ValueError:
+    print("Please try again.")
+        
+        
+        
+
+
+
+    
+
+
+    
+    
+
+
+
+    
+
+    
+
+
+
